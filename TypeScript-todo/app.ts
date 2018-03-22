@@ -39,3 +39,36 @@ for (var value of array) {
 
 array.map( x => console.log(x))
 
+// freaking .this example and lambda functions
+
+var container2 = document.getElementById('counter');
+
+function Counter(el) {
+
+    this.count = 0;
+
+    el.innerHTML = this.count;
+
+    // oldschool way to fix .this issue
+
+    // let that=this;
+
+    // el.addEventListener('click',
+    //     function (event) {
+    //         that.count += 1;
+    //         el.innerHTML=that.count;
+    //     } 
+
+    // new school - lambda functions! it does the same for you :)
+
+    el.addEventListener('click',
+        () => {
+            this.count += 1;
+            el.innerHTML=this.count;
+        }
+    )
+}
+
+new Counter(container2);
+
+var filtered = [1,2,3].filter(x => x > 0)

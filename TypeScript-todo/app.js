@@ -24,4 +24,25 @@ for (var _i = 0, array_1 = array; _i < array_1.length; _i++) {
     console.log(value);
 }
 array.map(function (x) { return console.log(x); });
+// freaking .this example and lambda functions
+var container2 = document.getElementById('counter');
+function Counter(el) {
+    var _this = this;
+    this.count = 0;
+    el.innerHTML = this.count;
+    // oldschool way to fix .this issue
+    // let that=this;
+    // el.addEventListener('click',
+    //     function (event) {
+    //         that.count += 1;
+    //         el.innerHTML=that.count;
+    //     } 
+    // new school - lambda functions! it does the same for you :)
+    el.addEventListener('click', function () {
+        _this.count += 1;
+        el.innerHTML = _this.count;
+    });
+}
+new Counter(container2);
+var filtered = [1, 2, 3].filter(function (x) { return x > 0; });
 //# sourceMappingURL=app.js.map
