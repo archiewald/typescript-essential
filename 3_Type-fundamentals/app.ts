@@ -26,4 +26,16 @@ console.log("Type fundamentals");
 
     makeTheAnimalSpeak(animal);
 
+    // type inference - ts can figure out what are the types without defining them
+
+    // animal.name = 1; - ts will not let you do this
+
+    function calculateAge(birthYear) {
+        //ts know that return type is a number!
+        return Date.now() - birthYear;
+    }
+
+    const age = calculateAge(2010);
+
+
 }
