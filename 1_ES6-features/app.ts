@@ -1,3 +1,4 @@
+{
 var container = document.getElementById('container');
 
 // using typescript literals
@@ -72,3 +73,4 @@ function Counter(el) {
 new Counter(container2);
 
 var filtered = [1,2,3].filter(x => x > 0)
+}
