@@ -37,5 +37,40 @@ console.log("Type fundamentals");
 
     const age = calculateAge(2010);
 
+    function totalLength(x, y) {
+        // ts has no idea that .length will return a number. ts assigns 'any' to both arg and return value
+        // ts is here to help so you want to avoid 'any' as much as you can
+        // here ts doesnt know about typo below
+        const total = x.length + y.lengt;
+        return total;
+    }
+
+    function totalLengthTyped(x:string, y:string){
+        // here typo will be recognised
+        const total : number = x.length + y.length;
+        
+        return total;
+    }
+
+
+    function totalLengthUnion(x: string | any[], y: string | any[]): number {
+        // we can use autocomplition to use string and array methods
+        var total: number = x.length + y.length;
+
+        // typeguards like below allow us to tread input x differently
+        // if it's array or string
+
+        if(x instanceof Array) {
+            x.push('TypeScript') // this will not be allowed outside of this 'if'
+        }
+        
+        if(x instanceof String) {
+            x.substr(0) // and neither this!
+        }
+
+        return total;
+    }
+
+
 
 }
