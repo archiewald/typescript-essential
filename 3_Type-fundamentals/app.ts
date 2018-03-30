@@ -53,6 +53,8 @@ console.log("Type fundamentals");
     }
 
 
+    function totalLengthUnion(x: any[], y: any[]): number // we add function overload to make sure both args are same type
+    function totalLengthUnion(x: string, y: string): number
     function totalLengthUnion(x: string | any[], y: string | any[]): number {
         // we can use autocomplition to use string and array methods
         var total: number = x.length + y.length;
@@ -71,6 +73,6 @@ console.log("Type fundamentals");
         return total;
     }
 
-
+    // both types and function overloads are simply metadata to let you write a better code
 
 }
