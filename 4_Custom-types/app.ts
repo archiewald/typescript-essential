@@ -18,13 +18,14 @@ console.log("Custom types");
 
     interface ITodoService {
         add(todo: Todo): Todo;
-        delete(todo: Todo): void;
+        // delete(todo: Todo): void;
         getAll(): Todo[];
         getById(todoId: number): Todo;
     }
 
     interface jQuery {
-        (selector: string): HTMLElement;
+        (selector: string | any): HTMLElement;
+        fn: any;
         version: number;
     }
     
