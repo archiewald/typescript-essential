@@ -31,11 +31,11 @@ console.log("Custom types");
     
     // using interface to describe functions
     
-    var $ = <jQuery>function(selector: string) {
+    const $ = <jQuery>function(selector: string) {
         // Find DOM element
     }
     
     $.version = 1.18
     
-    var container = $("#container");
+    const container = $("#container");
 }

@@ -35,4 +35,18 @@ console.log("Enums");
             throw "Can't delete incomplete task!"
         }
     }
+
+    // anonymous types
+
+    let todo2: {name: string}; // note you cant use const here
+
+    // todo2 = {age: 41}
+    // cant do this!
+
+    function totalLength(x: { length: number }, y: { length: number }): number {
+        // any object with property length which is a number can use this method
+        var total: number = x.length + y.length;
+        return total;
+    }
+    
 }

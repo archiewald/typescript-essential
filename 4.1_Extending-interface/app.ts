@@ -1,6 +1,6 @@
 console.log("Extending interface");
 {
-    var $ = <jQuery>function(selector: string) {
+    const $ = <jQuery>function(selector: string) {
         // Find DOM element
     }
     
@@ -42,10 +42,10 @@ console.log("Extending interface");
         
     }
     
-    var todo = { name: "Pick up drycleaning" };
-    var container = $('#container');
+    const todo = { name: "Pick up drycleaning" };
+    const container = $('#container');
     container.data('todo', todo)
-    var savedTodo = container.data('todo');
+    const savedTodo = container.data('todo');
     
     container.todo(todo)
 }
