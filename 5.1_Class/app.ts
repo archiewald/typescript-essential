@@ -41,13 +41,18 @@ console.log("Define a class");
         Deleted = 4,
     }
 
-    const todo = {
-        name: "Zrob to",
-        get state() {
-            return this._state
-        },
-        set state(newState) {
+    class SmartTodo {
+    
+        _state: TodoState;
         
+        name: string;
+        
+        get state() {
+            return this._state;
+        }
+        
+        set state(newState) {
+            
             if(newState == TodoState.Complete) {
                 
                 var canBeCompleted = 
@@ -61,12 +66,15 @@ console.log("Define a class");
             
             this._state = newState;
         }
-    
+        
+        constructor(name: string) {
+            this.name = name;
+        }
     }
+
+    const todo = new SmartTodo("Zrob kursik")
 
     todo.state = TodoState.Active;
     todo.state = TodoState.Complete; // will not let you do this until its active or deleted!
-
-    // this approach with getter and setter would be generally applied to class representation
     
 }
