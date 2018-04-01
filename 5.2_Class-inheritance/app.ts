@@ -12,16 +12,15 @@ console.log("class inheritance");
         Deleted
     }
 
-    class TodoStateChanger { // state machine
+    abstract class TodoStateChanger { // state machine
     
         constructor(private newState: TodoState) {
         }
         
-        canChangeState(todo: Todo): boolean {
-            // can todo be changed?
-            return !!todo; // yes, if exists
-        }
-        
+        abstract canChangeState(todo: Todo): boolean;
+        // we force every derived class to implement own canChangeState method
+        // if no canChangeState was implemented, ts will throw an error
+
         changeState(todo: Todo): Todo {
             if(this.canChangeState(todo)) {
                 todo.state = this.newState;
@@ -40,9 +39,8 @@ console.log("class inheritance");
         }
 
         canChangeState(todo: Todo): boolean {
-            // super is the base class object
-            // let you use base class methods though they are overridden
-            return super.canChangeState(todo) && (
+            // super.canChangeState is no longer needed
+            return todo!! && (
                 todo.state == TodoState.Active //can be changed only if is Active or Deleted
              || todo.state == TodoState.Deleted
           )
