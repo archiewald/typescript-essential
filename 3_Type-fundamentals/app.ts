@@ -1,5 +1,6 @@
 console.log("Type fundamentals");
 {
+    
     // javascript types :
 
     // boolean
@@ -74,5 +75,5 @@ console.log("Type fundamentals");
     }
 
     // both types and function overloads are simply metadata to let you write a better code
-
+    
 }
