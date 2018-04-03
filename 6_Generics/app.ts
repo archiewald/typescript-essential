@@ -47,6 +47,36 @@ console.log("Generics");
         
     }
 
-    const printer = new KeyValuePairPrinter([ pair1, pair3 ])
+    const printer = new KeyValuePairPrinter([ pair1,pair3 ]); // pair 2 cannot be included here
+                                                              // since they are not the same key value pairs
+    const printer2 = new KeyValuePairPrinter([ pair2 ]); 
     printer.print();
+    printer2.print();
+
+    // generic constraints
+
+    function totalLengthGeneric<T extends { length: number }>(x: T, y: T) {
+        // both arguments must be the same type and contain length number property
+        const total = x.length + y.length;
+        return total;
+    }
+
+    interface HaveANumber {
+        length: number;
+    }
+
+    function totalLengthGenericFormal<T extends HaveANumber>(x: T, y: T) {
+        const total = x.length + y.length;
+        return total;
+    }
+    
+    totalLengthGeneric("Dupa","Chuj");
+    totalLengthGeneric([0,1],[2,3]);
+    // totalLengthGeneric([0,1],"Chuj"); // error!
+
+    // T arguments might be not exactly same type if one inherits from the base which is same:
+
+    class CustomArray<T> extends Array<T> {}
+    totalLengthGeneric([0,1], new CustomArray<number>());
+    
 }
