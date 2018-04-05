@@ -72,3 +72,5 @@ tests/baselines/reference/dt
 
 *.js
 *.js.map
+
+!/8_Real-world-application
